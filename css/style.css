@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+
+:root {
+    --primary: rgb(216, 188, 111); /* sand */
+    --secondary: rgb(238, 104, 15); /* spice */
+    --dark: rgb(42, 42, 42);
+    --white: rgb(255, 255, 255);
+  }
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: "Oxanium", sans-serif;
+    cursor: url('../img/cursors/worm-cursor.svg'), auto; /* shai-hulud cursor Source: "https://icons8.com/icon/vAfwbq5MngUL/dune-sandworm  */
+}
+
+footer {
+    width: 100%;
+    height: 4rem;
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--secondary);
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary);
+}
+
+/* Navbar full width single row */
+.nav-list {
+    width: 100%;
+    list-style: none;
+    margin-bottom: 3rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.nav-item {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--secondary);
+    border-bottom: 0.125rem solid var(--primary);
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 12.5rem;
+    justify-self: center;
+}
+
+.nav-item:hover {
+    background-color: var(--primary);
+    cursor: pointer;
+}
+
+.home-icon {
+    width: 1.5rem;
+    height: auto;
+}
+
+/* Home page styles */
+.background-home {
+    background-image: url('../img/home/background-home.jpg'); /* Source: "https://images.wallpapersden.com/image/download/dune-2020-cool-4k-minimalist_bGhqbWyUmZqaraWkpJRobWllrWdma2U.jpg" */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+  }
+
+/* Places the white text down in the darker background  */
+.home-text-container {
+    position: fixed;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -75%);
+    color: transparent;
+    text-align: center;
+}
+
+.home-title {
+    font-size: 5vw;
+    animation: showTitle 5s ease-in-out 1 forwards;
+}
+ 
+.home-tagline {
+    animation: showTitle 5s ease-in-out 1 forwards;
+    animation-delay: 2s;
+    white-space: nowrap; /* no line break */
+    font-size: 2vw;
+}
+
+/* Animation: text fades in & flexes its size and spacing.  */
+@keyframes showTitle {
+    0% {
+        opacity: 0;
+        color: transparent;
+        letter-spacing: 1rem;
+    }
+    30% {
+        opacity: 0.3;
+        color: rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
+        letter-spacing: 1.25rem;
+    }
+    60% {
+        opacity: 0.8;
+        color: rgba(255, 255, 255, 0.8); 
+        transform: scale(1.2);
+        letter-spacing: 1.5rem;
+    }
+    100% {
+        opacity: 1;
+        color: rgb(255, 255, 255, 1.0);
+        transform: scale(1);
+        letter-spacing: 1.25rem;
+    }
+}
+  
+/* Character page styles */
+.character-body {
+    background-color: var(--dark);
+}
+
+.page-title {
+    color: var(--secondary);
+    font-size: 2rem;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1rem;
+    width: 100%;
+}
+
+/* Deafult 2 column grid */
+.character-card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 75vw;
+    max-width: 1200px;
+    margin: 0 auto;
+    grid-template-areas: 
+        "timmy timmy"
+        "chani jessica"
+        "stilgar baron";
+}
+
+.character-card {
+    text-align: center;
+    border: 3px solid var(--secondary);
+    border-radius: 0.5rem;
+    margin: 0 auto;
+    padding: 2rem;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    background-image: linear-gradient(to right, var(--white), var(--primary)); 
+}
+
+.character-title {
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+.character-image {
+    width: 20vw;
+    min-width: 150px;
+    height: auto;
+}
+
+.character-figcaption {
+    color: var(--secondary);
+    background-color: var(--primary);
+    width: 20vw;
+    min-width: 150px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.character-description {
+    color: var(--dark);
+    line-height: 1.5;
+    font-weight: 700;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.aliases {
+    font-weight: 400;
+    font-size: small;
+    color: var(--secondary);
+}
+
+/* Character grid areas */
+.muad-dib {
+    grid-area: timmy;
+    cursor: url('../img/cursors/goat-cursor.svg'), auto;/* Frank H is the reason for this cursor but i'll give timmy love for the performance */
+}
+
+.chani {
+    grid-area: chani;
+}
+
+.jessica {
+    grid-area: jessica;
+}
+
+.baron {
+    grid-area: baron;
+}
+
+.stilgar {
+    grid-area: stilgar;
+}
+
+/* Plot page styles */
+.plot-body {
+    background-color: var(--dark);
+}
+
+.plot-section {
+ display: grid;
+ grid-template-columns: 1fr 2fr;
+ justify-items: center;
+ align-items: center;
+ width: 90%;
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 1rem;
+ gap: 2rem;
+}
+
+.plot-img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+}
+
+.plot-text {
+    height: fit-content;
+    color: var(--white);
+    line-height: 1.75;
+    font-size: 1.25em;
+}
+
+/* About page styles */
+.about-body {
+    background-image: linear-gradient(to top, var(--white), var(--dark));
+}
+
+.the-goat {
+    cursor: url('../img/cursors/goat-cursor.svg'), auto;/* GOAT author cursor Source: https://www.svgrepo.com/svg/405743/goat*/
+}
+
+.about-main {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.about-novels {
+    display: block;
+    margin: 0 auto;
+    width: 50vw;
+    height: auto;
+    padding: 1.5rem;
+}
+
+.about-links {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+    list-style-type: none;
+    width: 100%;
+    margin: 1rem auto;
+}
+
+.about-links > li:hover {
+    background-color: var(--primary); 
+}
+
+/* Mobile Layouts */
+@media (max-width: 768px) { 
+    /* Navbar */
+    .nav-list {
+        grid-template-columns: 1fr; 
+        gap: 0.5rem;
+    }
+
+    .nav-item {
+        width: 80%;
+        max-width: 300px;
+        padding-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    /* Character Page */
+    .character-card-container {
+        grid-template-columns: 1fr; 
+        gap: 1.5rem;
+        grid-template-areas: 
+        "timmy"
+        "chani"
+        "jessica"
+        "stilgar"
+        "baron";
+    }
+
+    .character-description {
+        width: 100%;
+    }
+
+    /* Plot Page */
+    .plot-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .plot-section > img {
+        width: 50vw;
+        height: auto;
+    }
+
+    .plot-text {
+        font-size: 1em;
+    }
+
+    /* Changes the order of items to always alternate img/p on mobile */
+    .plot-section:nth-child(even) {
+        display: flex;
+        flex-direction: column-reverse; /* Swaps img and p of even sections to match odd */
+    }
+
+    /* About Page */
+    .about-main {
+        width: 80%;
+    }
+
+    .about-links {
+        font-size: 1rem;
+        line-height: 2.0;
+    }
+}
